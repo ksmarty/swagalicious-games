@@ -1,2 +1,2 @@
-# swagalicious-games
-Only the most swagalicious of games
+# Swagalicious Games
+Only the most swagalicious of games.
