@@ -2,10 +2,20 @@ function love.load()
   ballX = 150
   ballY = 100
   
-  success = love.window.setMode( 600, 600)
+  success = love.window.setMode( 800, 800)
   
-  --Draw Checkerboard
   
+  blackPieces = {}
+  whitePieces = {}
+    
+  for i = 1, 12 do
+    blackPieces[i] = {x = 0, y = 0, queen = false}
+    
+    whitePieces[i] = {x = 0, y = 0, queen = false}
+  end
+ 
+
+
 
   
   
@@ -17,16 +27,18 @@ function love.draw()
   --Draw Checkerboard
   
   --I is for columns
-  for i = 0, 8, 1 do
-    redFirst = true
+  for i = 0, 7, 1 do
+    greyFirst = true
     
     if not (i % 2 == 0) then
-      redFirst = false
+      greyFirst = false
     end
     -- J is for rows
-    for j = 0,8,1 do
+    for j = 0,7,1 do
     
-      if (redFirst) then
+    
+      --If greFirst, even columns start grey, if not, even columns start brown
+      if not (greyFirst) then
     
         if (j % 2 == 0) then
           love.graphics.setColor(160,82,45,255)
@@ -50,49 +62,50 @@ function love.draw()
   end
   
   
-  --[[
-  love.graphics.rectangle("fill",ballX,ballY,100,100)
-
-  
-  if (love.keyboard.isDown("left")) then
-    ballX = ballX - 1
-  end
-  
-  if (love.keyboard.isDown("right")) then
-  ballX = ballX + 1
-  end
-
-  if (love.keyboard.isDown("up")) then
-  ballY = ballY - 1
-  end
-
-  if (love.keyboard.isDown("down")) then
-  ballY = ballY + 1
-  end
-  ]]--
-  
   
   
   
 
+
+
+
+
+
+
+
+love.graphics.setColor(255,255,255,255)
+ 
+ 
+ 
+ --Rows
+  for i = 0, 2 do
+    
+    greyFirst = true
+    
+    if not (i % 2 == 0) then
+      greyFirst = false
+    end
+    
+    --Columns
+    for j = 0, 3 do
+      
+      if not (greyFirst) then
+      
+      love.graphics.print("RED",(j)*150,(i)*75)
+      
+      else
+      
+      love.graphics.print("RED",(j+1)*150-75,(i)*75)
+      
+      end
+      
+    end
+  
+  end
 end
 
 function love.update()
   
-  
-  
-end
-
-function moveLeft()
-
-end
-
-
-function love.keypressed(key, scancode, isrepeat)
-
-end
-
-function love.keyreleased (key)
   
   
 end
