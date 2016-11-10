@@ -22,11 +22,17 @@ end
 function love.keypressed(key, scancode, isrepeat)
 
   if (key == "left")  then
-      ballX = ballX + 1
-  
+    
+
+      ballX = ballX - 1
   elseif (key == "right") then
       ballX = ballX + 1
   end
 
 
+end
+
+function love.keyreleased (key)
+  if (key == "left")
+  end
 end
