@@ -1,4 +1,9 @@
-function love.load()
-  success = love.window.setMode( 600, 600)
+local mainMenu={};
+
+function mainMenu.menu()
+    love.graphics.print("Yay!",75,75)
+end
+
+function love.draw()
   love.window.setTitle("Menu - Autism Checkers")
 end
