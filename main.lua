@@ -26,8 +26,8 @@ function love.load()
 end
 
 function love.draw()
-  mainMenu.menu()
-
+  
+    mainMenu.menu()
   --Draw Checkerboard
 
   --I is for columns
@@ -157,6 +157,7 @@ love.graphics.setColor(255,255,255,255)
   end
 
 
+
   --Print mouse Position
   love.graphics.setColor(255,255,255,255)
 
@@ -165,10 +166,22 @@ love.graphics.setColor(255,255,255,255)
 
     love.graphics.print(selectedX,700,90)
   love.graphics.print(selectedY,700,100)
+  
+  --Print if mouse is released
+  if mouseDown then
+    love.graphics.print("Click",700,120)
+    printMoves(selectedX+1, selectedY+1)
+  end
 
+
+  mouseDown = false;
 end
 
-function love.update()
+function printMoves(xSquare, ySquare)
+  
+end
+
+function love.update(dt)
 
     mouseX, mouseY = love.mouse.getPosition();
 
@@ -176,4 +189,11 @@ function love.update()
 
     selectedY = (math.ceil(mouseY/75)-1)
 
+end
+
+function love.mousereleased(x, y, button, istouch)
+  mouseDown = true
+  if button == 1 then
+    
+  end
 end
