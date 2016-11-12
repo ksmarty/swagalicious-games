@@ -164,8 +164,8 @@ love.graphics.setColor(255,255,255,255)
   love.graphics.print(mouseX,700,50)
   love.graphics.print(mouseY,700,60)
 
-    love.graphics.print(selectedX,700,90)
-  love.graphics.print(selectedY,700,100)
+    love.graphics.print(selectedX+1,700,90)
+  love.graphics.print(selectedY+1,700,100)
   
   --Print if mouse is released
   if mouseDown then
@@ -178,6 +178,43 @@ love.graphics.setColor(255,255,255,255)
 end
 
 function printMoves(xSquare, ySquare)
+  
+  --Figure out if there's something on that square
+  
+  pieceOnSquare = false
+  isWhite = true  
+  --Figure out if it's a white piece or not
+  for i = 1, #blackPieces do
+    
+    if (blackPieces[i].x == xSquare and blackPieces[i].y == ySquare) then
+      isWhite = false
+      pieceOnSquare = true
+    end
+    
+    if not (whitePieces[i].x == xSquare and whitePieces[i].y == ySquare) then
+      isWhite = false
+      pieceOnSquare = true
+    end
+    
+  end
+  
+  --If there's a piece and its white
+  if pieceOnSquare and isWhite then
+    
+    --If it's a queen
+    
+    --Look around for open spaces in any direction
+    
+    --Top Left
+    topLeftEmpty = false
+    if not (whitePieces[i].x == xSquare + 1 and whitePieces[i].y == ySquare + 1) then
+        topLeftEmpty = false
+        love.graphics.print("TOPLEFT OPEN!",700,200)
+    end
+    
+  end
+
+  
   
 end
 
