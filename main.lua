@@ -1,5 +1,6 @@
-require ("swagalicious-games.menu")
-menu()
+mainMenu = require("menu")
+
+
 
 function love.load()
   ballX = 150
@@ -25,7 +26,7 @@ function love.load()
 end
 
 function love.draw()
-
+  mainMenu.menu()
 
   --Draw Checkerboard
 
